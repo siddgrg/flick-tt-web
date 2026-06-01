@@ -1,9 +1,10 @@
 ---
 import PageHeader from "../../components/header/PageHeader.astro";
+import Tabs from "../../components/tabs/Tabs.astro";
 import Layout from "../../layouts/Layout.astro";
 ---
 
 <Layout title="Offerings">
   <PageHeader page="offerings" />
-  <p>hello</p>
+  <Tabs containerProps={{ class: "max-w-80 sm:max-w-120 lg:max-w-fit" }} />
 </Layout>

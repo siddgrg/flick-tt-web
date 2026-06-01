@@ -1,0 +1,22 @@
+---
+import WithA from "../ui/with/WithA.astro";
+
+interface Props {
+  isFirst?: boolean;
+  aProps?: astroHTML.JSX.AnchorHTMLAttributes;
+}
+
+const { isFirst, aProps } = Astro.props;
+
+// TODO fix styling for smaller window sizes
+---
+
+<button
+  class:list={[
+    "flex justify-center items-center w-40 lg:w-50 h-20 p-1 cursor-pointer border-flick-dark text-center uppercase font-light text-lg tab-links",
+    { "border-l": !isFirst },
+  ]}
+  data-target={aProps?.href}
+>
+  <slot />
+</button>
