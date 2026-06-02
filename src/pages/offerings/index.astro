@@ -1,18 +1,26 @@
 ---
 import PageHeader from "../../components/header/PageHeader.astro";
-import Tabs from "../../components/tabs/Tabs.astro";
+import PageTabs from "../../components/tabs/PageTabs.tsx";
 import Layout from "../../layouts/Layout.astro";
+
+const tabConfig = [
+  { label: "Group sessions", contentId: "group-sessions" },
+  { label: "1-2-1s", contentId: "one-to-ones" },
+  { label: "Workshops", contentId: "workshops" },
+  { label: "Open sessions", contentId: "open-sessions" },
+  { label: "Table bookings", contentId: "table-bookings" },
+  { label: "Corporate", contentId: "corporate" },
+];
 ---
 
 <Layout title="Offerings">
   <PageHeader page="offerings" />
-  <Tabs
-    containerProps={{
-      class: "max-w-full sm:max-w-120.5 lg:max-w-fit",
-    }}
-    tabProps={{
-      class:
-        "not-last-of-type:border-b sm:not-last-of-type:border-b-0 sm:nth-of-type-[-n+3]:border-b lg:sm:nth-of-type-[-n+3]:border-b-0",
-    }}
-  />
+  <PageTabs client:load tabConfig={tabConfig} />
+  {
+    tabConfig.map(({ label, contentId }) => (
+      <div class="tab-content hidden" id={contentId}>
+        {label + " content"}
+      </div>
+    ))
+  }
 </Layout>

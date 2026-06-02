@@ -32,13 +32,16 @@ const isHome = page === "home";
 
     <!-- mobile menu -->
     <div class="flex items-center lg:hidden">
-      <NavToggleButton />
+      <NavToggleButton action="open" />
     </div>
-    <div popover id="mobile-menu" class="lg:hidden">
+    <dialog
+      id="mobile-nav-menu"
+      class="lg:hidden fixed inset-0 m-0 h-screen w-screen max-h-none max-w-none border-0 p-0"
+    >
       <div
-        class="flex flex-col gap-y-8 h-screen w-screen overflow-y-scroll py-9.5 px-8.5 text-flick-black"
+        class="flex flex-col gap-y-8 py-9.5 px-8.5 overflow-y-scroll text-flick-black"
       >
-        <NavToggleButton menuOpen />
+        <NavToggleButton action="close" />
         <p class="text-center font-bold text-4xl md:text-6xl">Menu</p>
         {
           links.map(({ name, link }) => (
@@ -51,7 +54,7 @@ const isHome = page === "home";
           ))
         }
       </div>
-    </div>
+    </dialog>
 
     <!-- desktop menu -->
     <ul class="hidden lg:flex flex-row gap-10 text-white">

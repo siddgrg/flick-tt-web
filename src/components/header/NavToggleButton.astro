@@ -1,21 +1,24 @@
 ---
-const { menuOpen } = Astro.props;
+interface Props {
+  action: "open" | "close";
+}
+
+const { action } = Astro.props;
 ---
 
 <button
-  id="mobile-menu-toggle-btn"
-  type="button"
-  command="toggle-popover"
-  commandfor="mobile-menu"
+  id="mobile-nav-menu-toggle-btn"
+  command={action === "open" ? "show-modal" : "close"}
+  commandfor="mobile-nav-menu"
   class:list={[
     "relative items-center justify-center rounded-md p-2 cursor-pointer transition duration-150 focus:outline-2 focus:-outline-offset-1 focus:outline-flick-yellow",
-    menuOpen
-      ? "self-end text-flick-black hover:bg-black/5"
-      : "inline-flex text-white hover:bg-white/5",
+    action === "open"
+      ? "inline-flex text-white hover:bg-white/5"
+      : "self-end text-flick-black hover:bg-black/5",
   ]}
 >
   <span class="absolute -inset-0.5"></span>
-  <span class="sr-only">Open main menu</span>
+  <span class="sr-only">Open nav menu</span>
   <svg
     viewBox="0 0 24 24"
     fill="none"
