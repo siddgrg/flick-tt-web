@@ -1,0 +1,16 @@
+---
+import ChevronDown from "../../icons/ChevronDown.svg";
+---
+
+<div
+  class="accordion-title flex items-center justify-between w-full p-2 cursor-pointer"
+>
+  <span class="font-bold text-xl lg:text-2xl pointer-events-none">
+    <slot />
+  </span>
+  <span class="w-6">
+    <ChevronDown
+      class="accordion-chevron size-6 transition-transform duration-150 ease-in pointer-events-none"
+    />
+  </span>
+</div>

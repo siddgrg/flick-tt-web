@@ -2,6 +2,10 @@
 import OfferingsLayout from "../../layouts/OfferingsLayout.astro";
 import MainImage from "../../assets/offerings-group-sessions.jpg";
 import Button from "../ui/inputs/Button.astro";
+import InfoHighlightLayout from "../../layouts/InfoHighlightLayout.astro";
+import Accordion from "../accordion/Accordion.astro";
+import AccordionTitle from "../accordion/AccordionTitle.astro";
+import AccordionContent from "../accordion/AccordionContent.astro";
 ---
 
 <OfferingsLayout title="Group Sessions">
@@ -14,7 +18,7 @@ import Button from "../ui/inputs/Button.astro";
       class="relative bottom-14 sm:bottom-25 lg:bottom-75 w-full object-cover aspect-4/3"
     />
   </div>
-  <p class="font-light text-xl lg:text-3xl">
+  <p class="font-light text-xl lg:text-2xl">
     Our level-based* group sessions are structured to balance quality coaching,
     focused training, and match play. Each two-hour session (max 12 players)
     includes a 15-minute warm-up, 1 hour 15 minutes of drill practice with water
@@ -25,4 +29,271 @@ import Button from "../ui/inputs/Button.astro";
   <a href="https://bookwhen.com/flicktt" target="_blank" class="m-auto">
     <Button size="lg">Book now</Button>
   </a>
+  <InfoHighlightLayout title="Group Coaching Levels (1-4)">
+    <p class="font-semibold text-xl lg:text-2xl">
+      Our group sessions are split by levels so you train at the right pace and
+      improve faster. Levels are based on repeatable skills, not “who wins
+      games”.
+    </p>
+    <p>
+      Not sure where you fit? Book Level 1-2 or ask a coach on the day — we'll
+      guide you to the best group for progress. (You'll also see Level 1-2 / 2-3
+      / 3-4 sessions in the booking schedule.)
+    </p>
+
+    <div class="flex flex-col gap-2">
+      <Accordion>
+        <AccordionTitle>
+          LEVEL 1 — Solid foundations (stance, grip, control)
+        </AccordionTitle>
+        <AccordionContent>
+          <div class="flex flex-col gap-3">
+            <p>
+              <span class="font-semibold">Perfect if:</span> you're new, returning
+              after a break, or you can rally “sometimes” but don't feel in control.
+            </p>
+
+            <div>
+              <span class="font-semibold">We focus on</span>
+              <ul class="list-disc list-inside">
+                <li>
+                  Ready position (stance), balance and distance to the table
+                </li>
+                <li>Correct grip and racket angle</li>
+                <li>Clean contact and simple, consistent strokes (no spin)</li>
+              </ul>
+            </div>
+
+            <div>
+              <span class="font-semibold">You will learn</span>
+              <ul class="list-disc list-inside">
+                <li>Forehand & backhand basics with a stable trajectory</li>
+                <li>Simple placement (cross-court / down-the-line)</li>
+                <li>
+                  First consistency drills: keep the ball on the table with good
+                  form
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <span class="font-semibold">To move up to Level 2</span>
+              <ul class="list-disc list-inside">
+                <li>
+                  You can rally comfortably on both sides at a steady pace
+                </li>
+                <li>Your technique stays stable under light pressure</li>
+                <li>
+                  You understand and apply basic coaching corrections (distance,
+                  angle, timing)
+                </li>
+              </ul>
+            </div>
+
+            <p>
+              <span class="font-semibold">Main difference vs Level 2:</span> Level
+              1 builds control. Level 2 adds real consistency with spin awareness.
+            </p>
+          </div>
+        </AccordionContent>
+      </Accordion>
+
+      <Accordion>
+        <AccordionTitle>
+          LEVEL 2 — Consistency + understanding spin
+        </AccordionTitle>
+        <AccordionContent>
+          <div class="flex flex-col gap-3">
+            <p>
+              <span class="font-semibold">Perfect if:</span> you can rally, but spin
+              (especially serves) makes the ball fly long, drop in the net, or kick
+              sideways.
+            </p>
+
+            <div>
+              <span class="font-semibold">We focus on</span>
+              <ul class="list-disc list-inside">
+                <li>Stronger forehand/backhand consistency with placement</li>
+                <li>Reading topspin / backspin / sidespin</li>
+                <li>Basic receive so you stop giving away free points</li>
+              </ul>
+            </div>
+
+            <div>
+              <span class="font-semibold">You will learn</span>
+              <ul class="list-disc list-inside">
+                <li>Controlled rallies with better depth and direction</li>
+                <li>How to identify spin and adjust racket angle + timing</li>
+                <li>Safer pushes and controlled returns against backspin</li>
+              </ul>
+            </div>
+
+            <div>
+              <span class="font-semibold">To move up to Level 2</span>
+              <ul class="list-disc list-inside">
+                <li>
+                  You can keep consistent rallies with intention (not just
+                  “survive”)
+                </li>
+                <li>
+                  You recognise common spins and react correctly most of the
+                  time
+                </li>
+                <li>Your basics hold up in longer drills</li>
+              </ul>
+            </div>
+
+            <p>
+              <span class="font-semibold">Main difference vs Level 3:</span> Level
+              2 is “I understand spin.” Level 3 is “I can attack with topspin and
+              defend with blocks.”
+            </p>
+          </div>
+        </AccordionContent>
+      </Accordion>
+
+      <Accordion>
+        <AccordionTitle>
+          LEVEL 3 — Topspin consistency + blocking + structured drills
+        </AccordionTitle>
+        <AccordionContent>
+          <div class="flex flex-col gap-3">
+            <p>
+              <span class="font-semibold">Perfect if:</span> you want to play modern
+              table tennis: open the point, pressure, and hold rallies without breaking
+              down.
+            </p>
+
+            <div>
+              <span class="font-semibold">We focus on</span>
+              <ul class="list-disc list-inside">
+                <li>Reliable topspin (not occasional hero shots)</li>
+                <li>Blocking technique (control + placement)</li>
+                <li>
+                  Structured multi-step drills (including 12-ball patterns)
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <span class="font-semibold">You will learn</span>
+              <ul class="list-disc list-inside">
+                <li>
+                  Forehand topspin consistency (and backhand topspin progression
+                  when appropriate)
+                </li>
+                <li>Opening vs backspin (the key “next step” skill)</li>
+                <li>Active blocks: control height, depth and direction</li>
+                <li>
+                  Longer patterns: rhythm, placement changes, and transitions
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <span class="font-semibold">To move up to Level 2</span>
+              <ul class="list-disc list-inside">
+                <li>
+                  You can topspin safely with margin and repeat it in drills
+                </li>
+                <li>You can block without popping the ball up</li>
+                <li>
+                  You complete longer patterns with stable technique and
+                  decisions
+                </li>
+              </ul>
+            </div>
+
+            <p>
+              <span class="font-semibold">Main difference vs Level 4:</span> Level
+              3 builds your rally engine. Level 4 teaches you to win points from the
+              serve + first 3 balls.
+            </p>
+          </div>
+        </AccordionContent>
+      </Accordion>
+
+      <Accordion>
+        <AccordionTitle>
+          LEVEL 4 — Serve + receive + “first 3 balls” (play with a plan)
+        </AccordionTitle>
+        <AccordionContent>
+          <div class="flex flex-col gap-3">
+            <p>
+              <span class="font-semibold">Perfect if:</span>you have good
+              strokes, but points slip away on serve/receive, or you don't know
+              what to do on 3rd/5th ball.
+            </p>
+
+            <div>
+              <span class="font-semibold">We focus on</span>
+              <ul class="list-disc list-inside">
+                <li>Serve quality and variation with a purpose</li>
+                <li>Receive that doesn't gift easy points</li>
+                <li>
+                  First 3 balls patterns: serve → receive → 3rd ball attack
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <span class="font-semibold">You will learn</span>
+              <ul class="list-disc list-inside">
+                <li>
+                  Practical serve fundamentals (contact, control, disguise,
+                  intention)
+                </li>
+                <li>
+                  Useful variations: short/long, backspin/topspin/sidespin
+                  mixes, float
+                </li>
+                <li>
+                  Receive options (short/long push, controlled placement, basic
+                  flick when suitable)
+                </li>
+                <li>
+                  3rd ball attack with high percentage (repeatable, not risky)
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <span class="font-semibold">To move up to Level 2</span>
+              <ul class="list-disc list-inside">
+                <li>Your serves create predictable returns</li>
+                <li>Your receive stays stable under pressure</li>
+                <li>
+                  Your 3rd ball attack is reliable and you can continue the
+                  point with intent
+                </li>
+              </ul>
+            </div>
+          </div>
+        </AccordionContent>
+      </Accordion>
+    </div>
+    <div>
+      <span class="font-bold text-xl lg:text-2xl">
+        QUICK SELF-CHECK (pick your starting level)
+      </span>
+      <ul>
+        <li>
+          <span class="font-semibold">Level 1:</span> stance/grip basics + consistent
+          simple hits (no spin)
+        </li>
+        <li>
+          <span class="font-semibold">Level 2:</span> consistent basics + understand
+          spin, especially on serve/receive
+        </li>
+        <li>
+          <span class="font-semibold">Level 3:</span> consistent topspin + blocking
+          + longer structured drills
+        </li>
+        <li>
+          <span class="font-semibold">Level 4:</span> serve/receive + strong first
+          3 balls and opening attack
+        </li>
+      </ul>
+    </div>
+  </InfoHighlightLayout>
 </OfferingsLayout>

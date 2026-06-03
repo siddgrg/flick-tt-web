@@ -1,0 +1,29 @@
+<div
+  class="accordion w-full grid grid-rows-[min-content_0fr] transition-[grid-template-rows] duration-150 ease-in bg-black/15 rounded-xl p-3"
+>
+  <slot />
+</div>
+
+<!-- TODO make open only one accordion at a time -->
+<script>
+  const toggleAccordion = (parent: HTMLElement | null) => {
+    parent?.classList.toggle("grid-rows-[min-content_0fr]");
+    parent?.classList.toggle("grid-rows-[min-content_1fr]");
+
+    const contentDiv = parent?.getElementsByClassName("accordion-dropdown");
+    contentDiv?.item(0)?.classList.toggle("invisible");
+    contentDiv?.item(0)?.classList.toggle("visible");
+
+    const chevron = parent?.getElementsByClassName("accordion-chevron");
+    chevron?.item(0)?.classList.toggle("rotate-180");
+  };
+
+  const accordionTitles = document.querySelectorAll(".accordion-title");
+
+  for (const accordionTitle of accordionTitles) {
+    accordionTitle.addEventListener("click", function (event) {
+      const parent = (event?.target as Element)?.parentElement;
+      toggleAccordion(parent);
+    });
+  }
+</script>
