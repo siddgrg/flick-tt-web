@@ -1,18 +1,18 @@
 ---
 import BannerButton from "../ui/inputs/BannerButton.astro";
 import BannerLogo from "../../assets/logo-no-sub.svg";
-import HeaderContainer from "./HeaderContainer.astro";
+import HeaderLayout from "../../layouts/HeaderLayout.astro";
 
 const { page } = Astro.props;
 ---
 
-<HeaderContainer page={page}>
+<HeaderLayout page={page}>
   <div
     class="flex flex-col gap-10 items-center justify-between lg:flex-row xl:gap-30"
   >
-    <BannerButton btnProps={{ id: "banner-btn-timetable" }}
-      >Timetable</BannerButton
-    >
+    <BannerButton btnProps={{ id: "banner-btn-timetable" }}>
+      Timetable
+    </BannerButton>
     <BannerButton aProps={{ href: "/membership" }}>Membership</BannerButton>
     <BannerButton
       aProps={{ href: "https://bookwhen.com/flicktt", target: "_blank" }}
@@ -22,7 +22,7 @@ const { page } = Astro.props;
   <div class="max-w-375 w-full">
     <BannerLogo />
   </div>
-</HeaderContainer>
+</HeaderLayout>
 
 <script>
   const timetableBtn = document.getElementById("banner-btn-timetable");

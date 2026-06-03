@@ -2,6 +2,12 @@
 import PageHeader from "../../components/header/PageHeader.astro";
 import PageTabs from "../../components/tabs/PageTabs.tsx";
 import Layout from "../../layouts/Layout.astro";
+import GroupSessions from "../../components/offerings/GroupSessions.astro";
+import OneToOnes from "../../components/offerings/OneToOnes.astro";
+import Workshops from "../../components/offerings/Workshops.astro";
+import OpenSessions from "../../components/offerings/OpenSessions.astro";
+import TableBookings from "../../components/offerings/TableBookings.astro";
+import Corporate from "../../components/offerings/Corporate.astro";
 
 const tabConfig = [
   { label: "Group sessions", contentId: "group-sessions" },
@@ -16,11 +22,30 @@ const tabConfig = [
 <Layout title="Offerings">
   <PageHeader page="offerings" />
   <PageTabs client:load tabConfig={tabConfig} />
-  {
-    tabConfig.map(({ label, contentId }, i) => (
+  <div class="tab-content" id={tabConfig[0].contentId}>
+    <GroupSessions />
+  </div>
+  <div class="tab-content hidden" id={tabConfig[1].contentId}>
+    <OneToOnes />
+  </div>
+  <div class="tab-content hidden" id={tabConfig[2].contentId}>
+    <Workshops />
+  </div>
+  <div class="tab-content hidden" id={tabConfig[3].contentId}>
+    <OpenSessions />
+  </div>
+  <div class="tab-content hidden" id={tabConfig[4].contentId}>
+    <TableBookings />
+  </div>
+  <div class="tab-content hidden" id={tabConfig[5].contentId}>
+    <Corporate />
+  </div>
+
+  <!-- {
+    tabConfig.map(({ label, Content, contentId }, i) => (
       <div class:list={["tab-content", { hidden: i !== 0 }]} id={contentId}>
-        {label + " content"}
+        {<Content />}
       </div>
     ))
-  }
+  } -->
 </Layout>

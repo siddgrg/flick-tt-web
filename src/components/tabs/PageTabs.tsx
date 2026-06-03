@@ -4,6 +4,8 @@ import {
   type ButtonHTMLAttributes,
   type PropsWithChildren,
 } from "react";
+import ChevronDown from "../../icons/ChevronDown.tsx";
+import ChevronUp from "../../icons/ChevronUp.tsx";
 
 type PageTabProps = PropsWithChildren<{
   buttonProps?: ButtonHTMLAttributes<HTMLButtonElement>;
@@ -78,13 +80,12 @@ const PageTabs = ({ tabConfig }: PageTabsProps) => {
   }, []);
 
   return (
+    // desktop tabs
     <div className="border-b border-flick-dark overflow-x-auto">
-      <div
-        id="page-tabs"
-        className="hidden lg:flex flex-row flex-wrap lg:flex-nowrap max-w-full lg:max-w-fit w-full m-auto border-x border-flick-dark"
-      >
+      <div className="hidden lg:flex flex-row flex-wrap lg:flex-nowrap max-w-full lg:max-w-fit w-full m-auto border-x border-flick-dark">
         {tabConfig.map(({ label, contentId }, i) => (
           <PageTab
+            key={contentId}
             isActive={contentId === active}
             buttonProps={{
               onClick: () => handleTabClick(contentId),
@@ -95,6 +96,7 @@ const PageTabs = ({ tabConfig }: PageTabsProps) => {
         ))}
       </div>
 
+      {/* mobile tabs */}
       <div className="lg:hidden">
         <PageTab
           isActive
@@ -104,6 +106,11 @@ const PageTabs = ({ tabConfig }: PageTabsProps) => {
         >
           <span className="sr-only">Open tabs menu</span>
           {tabMobileOptions[0].label}
+          {mobileOpen ? (
+            <ChevronUp className="text-white absolute right-5" />
+          ) : (
+            <ChevronDown className="text-white absolute right-5" />
+          )}
         </PageTab>
         <div
           className="hidden border-t border-flick-dark data-open:block"
@@ -111,7 +118,8 @@ const PageTabs = ({ tabConfig }: PageTabsProps) => {
         >
           {tabMobileOptions.slice(1).map(({ label, contentId }, i) => (
             <PageTab
-              isActive={contentId === active}
+              key={contentId}
+              isActive={false}
               buttonProps={{
                 onClick: () => handleMobileTabClick(contentId),
               }}

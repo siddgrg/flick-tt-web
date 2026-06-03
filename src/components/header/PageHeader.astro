@@ -1,5 +1,5 @@
 ---
-import HeaderContainer from "./HeaderContainer.astro";
+import HeaderLayout from "../../layouts/HeaderLayout.astro";
 
 type HeaderConfig = {
   title: string;
@@ -29,10 +29,10 @@ const headerConfig: Record<string, HeaderConfig> = {
 };
 ---
 
-<HeaderContainer>
+<HeaderLayout>
   <h1
     class="font-extrabold text-5xl md:text-8xl lg:text-9xl xl:text-[200px] 2xl:text-[250px] uppercase text-flick-yellow"
   >
     {headerConfig[page]?.title}
   </h1>
-</HeaderContainer>
+</HeaderLayout>
