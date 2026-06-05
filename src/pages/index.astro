@@ -12,12 +12,11 @@ import lisCoach from "../assets/lis-coach.jpg";
 import albertoCoach from "../assets/alberto-coach.jpg";
 import FlickTournamentBackground from "../assets/home-flick-tournament.png";
 import FlickLeagueBackground from "../assets/home-flick-league.png";
-import Footer from "../components/footer/Footer.astro";
 ---
 
 <Layout title="Home">
   <HomeHeader page="home" />
-  <div class="max-w-section px-12 py-15 sm:py-30 m-auto">
+  <div class="max-w-section px-6 lg:px-12 py-15 sm:py-30 m-auto">
     <div class="flex flex-col gap-11">
       <hgroup class="m-auto max-w-2xl text-center">
         <h1 class="uppercase font-bold text-4xl sm:text-5xl md:text-6xl">
@@ -78,7 +77,7 @@ import Footer from "../components/footer/Footer.astro";
   </div>
   <div class="bg-home-kids">
     <section
-      class="max-w-section m-auto flex flex-col gap-11 py-20 px-12 text-center items-center"
+      class="max-w-section m-auto flex flex-col gap-11 py-20 px-6 lg:px-12 text-center items-center"
     >
       <h3>Kids Coaching and Competitions</h3>
       <p class="text-3xl">
@@ -134,7 +133,9 @@ import Footer from "../components/footer/Footer.astro";
     </section>
   </div>
   <div class="bg-membership">
-    <div class="max-w-section px-12 py-20 xl:pr-0 2xl:p-0 m-auto xl:flex">
+    <div
+      class="max-w-section px-6 lg:px-12 py-20 xl:pr-0 2xl:p-0 m-auto xl:flex"
+    >
       <div class="2xl:w-[130%] 2xl:relative">
         <div
           class="hidden 2xl:block xl:absolute xl:-top-10 m-auto size-125 rounded-4xl overflow-hidden border-10 border-black/10"
@@ -192,7 +193,7 @@ import Footer from "../components/footer/Footer.astro";
     </div>
   </div>
   <section
-    class="max-w-section m-auto flex flex-col gap-11 py-20 px-12 text-center items-center"
+    class="max-w-section m-auto flex flex-col gap-11 py-20 px-6 lg:px-12 text-center items-center"
   >
     <h2>About</h2>
     <p class="text-3xl xl:w-245">
@@ -200,9 +201,11 @@ import Footer from "../components/footer/Footer.astro";
       create lasting memories. We are passionate about sharing our love for the
       sport and instilling that same passion in our students.
     </p>
-    <div class="grid grid-cols-1 xl:grid-cols-2 gap-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
       <div class="flex flex-col gap-5">
-        <div class="size-75 md:size-125 overflow-hidden rounded-[30px]">
+        <div
+          class="size-90 lg:size-115 xl:size-115 overflow-hidden rounded-[30px]"
+        >
           <img
             src={albertoCoach.src}
             alt="Alberto coach"
@@ -220,7 +223,9 @@ import Footer from "../components/footer/Footer.astro";
         </div>
       </div>
       <div class="flex flex-col gap-5">
-        <div class="size-75 md:size-125 overflow-hidden rounded-[30px]">
+        <div
+          class="size-90 lg:size-115 xl:size-115 overflow-hidden rounded-[30px]"
+        >
           <img
             src={lisCoach.src}
             alt="Lis coach"
