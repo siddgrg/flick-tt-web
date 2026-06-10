@@ -62,10 +62,10 @@ const coachConfig = [
           </div>
           <div class="flex flex-col justify-between gap-5 md:gap-0 w-full">
             <h5 class="font-bold text-5xl">{name}</h5>
-            <div class="flex flex-row self-start gap-5 md:self-end">
-              <Button>Find out more</Button>
+            <div class="flex flex-col sm:flex-row w-full sm:w-fit self-start gap-5 md:self-end">
+              <Button class="w-full sm:w-fit">Find out more</Button>
               <a href={bookingUrl} target="_blank">
-                <Button>Book a Session</Button>
+                <Button class="w-full sm:w-fit">Book a Session</Button>
               </a>
             </div>
           </div>
