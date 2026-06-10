@@ -1,9 +1,37 @@
 ---
 import OfferingsLayout from "../../layouts/OfferingsLayout.astro";
 import MainImage from "../../assets/offerings-one-to-ones-main.jpg";
+import AlbertoImage from "../../assets/profile-alberto.png";
+import LisImage from "../../assets/profile-lis.png";
+import MartinImage from "../../assets/profile-martin.png";
+import Button from "../ui/inputs/Button.astro";
+
+const coachConfig = [
+  {
+    name: "Alberto Garrido",
+    img: {
+      src: AlbertoImage.src,
+    },
+    bookingUrl: "https://bookwhen.com/flicktt-alberto",
+  },
+  {
+    name: "Lis Pardo",
+    img: {
+      src: LisImage.src,
+    },
+    bookingUrl: "https://bookwhen.com/flicktt-lis",
+  },
+  {
+    name: "Martin Matuzevicius",
+    img: {
+      src: MartinImage.src,
+    },
+    bookingUrl: "https://bookwhen.com/flicktt-martin",
+  },
+];
 ---
 
-<OfferingsLayout title="1-2-1 Coaching">
+<OfferingsLayout title="Private Coaching">
   <div
     class="w-full aspect-video lg:aspect-73/30 overflow-hidden border-8 border-flick-dark"
   >
@@ -19,4 +47,30 @@ import MainImage from "../../assets/offerings-one-to-ones-main.jpg";
     appropriate. Ideal for fast improvement, targeted skill development, and
     refining specific areas of your game.
   </p>
+  <section>
+    <h4 class="font-bold text-4xl mb-4">Meet the Coaches</h4>
+    {
+      coachConfig.map(({ name, img, bookingUrl }, i) => (
+        <div
+          class:list={[
+            "flex flex-col md:flex-row py-6 gap-5 md:gap-8",
+            { "border-b border-flick-dark": i !== coachConfig.length - 1 },
+          ]}
+        >
+          <div class="md:max-h-90 md:max-w-85 h-full w-full overflow-hidden">
+            {<img src={img.src} alt={name} class="relative object-cover" />}
+          </div>
+          <div class="flex flex-col justify-between gap-5 md:gap-0 w-full">
+            <h5 class="font-bold text-5xl">{name}</h5>
+            <div class="flex flex-row self-start gap-5 md:self-end">
+              <Button>Find out more</Button>
+              <a href={bookingUrl} target="_blank">
+                <Button>Book a Session</Button>
+              </a>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </section>
 </OfferingsLayout>
