@@ -127,6 +127,7 @@ import FTTU18TournamentBg from "../../assets/compete-banner-u18.png";
   const loadTab = (tab: string) => {
     location.href = location.pathname + "#" + tab;
     location.reload();
+    window.scrollTo(0, 0);
   };
 
   const linkToClubLegaueEl = document.getElementById("link-to-club-league");
