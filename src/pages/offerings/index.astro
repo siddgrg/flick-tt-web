@@ -10,34 +10,38 @@ import TableBookings from "../../components/offerings/TableBookings.astro";
 import Corporate from "../../components/offerings/Corporate.astro";
 
 const tabConfig = [
-  { label: "Group sessions", contentId: "group-sessions" },
-  { label: "Private Coaching", contentId: "private-coaching" },
-  { label: "Workshops", contentId: "workshops" },
-  { label: "Open sessions", contentId: "open-sessions" },
-  { label: "Table bookings", contentId: "table-bookings" },
-  { label: "Corporate", contentId: "corporate" },
+  {
+    label: "Group sessions",
+    contentId: "group-sessions",
+    Content: GroupSessions,
+  },
+  {
+    label: "Private Coaching",
+    contentId: "private-coaching",
+    Content: OneToOnes,
+  },
+  { label: "Workshops", contentId: "workshops", Content: Workshops },
+  { label: "Open sessions", contentId: "open-sessions", Content: OpenSessions },
+  {
+    label: "Table bookings",
+    contentId: "table-bookings",
+    Content: TableBookings,
+  },
+  { label: "Corporate", contentId: "corporate", Content: Corporate },
 ];
 ---
 
 <PageLayout title="Offerings">
   <PageHeader page="offerings" />
   <PageTabs client:load tabConfig={tabConfig} />
-  <div class="tab-content" data-tab-content={tabConfig[0].contentId}>
-    <GroupSessions />
-  </div>
-  <div class="tab-content hidden" data-tab-content={tabConfig[1].contentId}>
-    <OneToOnes />
-  </div>
-  <div class="tab-content hidden" data-tab-content={tabConfig[2].contentId}>
-    <Workshops />
-  </div>
-  <div class="tab-content hidden" data-tab-content={tabConfig[3].contentId}>
-    <OpenSessions />
-  </div>
-  <div class="tab-content hidden" data-tab-content={tabConfig[4].contentId}>
-    <TableBookings />
-  </div>
-  <div class="tab-content hidden" data-tab-content={tabConfig[5].contentId}>
-    <Corporate />
-  </div>
+  {
+    tabConfig.map(({ contentId, Content }, i) => (
+      <div
+        class:list={["tab-content", { hidden: i !== 0 }]}
+        data-tab-content={contentId}
+      >
+        <Content />
+      </div>
+    ))
+  }
 </PageLayout>

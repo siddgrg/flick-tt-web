@@ -1,20 +1,21 @@
 ---
-import InfoHighlightLayout from "../../../layouts/InfoHighlightLayout.astro";
-import OfferingsLayout from "../../../layouts/OfferingsLayout.astro";
-import Button from "../../ui/inputs/Button.astro";
+import OfferingsLayout from "../../layouts/OfferingsLayout.astro";
+import Button from "../ui/inputs/Button.astro";
+import MainImage from "../../assets/offerings-workshops-main.png";
+import InfoHighlightLayout from "../../layouts/InfoHighlightLayout.astro";
 ---
 
-<OfferingsLayout
-  title="Flick TT Tournament"
-  showMembership={false}
-  containerProps={{ class: "gap-8" }}
->
-  <p class="text-3xl md:text-4xl lg:text-5xl text-flick-yellow text-center">
-    Orci varius natoque penatibus et magnis dis
-    <b class="font-semibold">parturient montes</b>, nascetur ridiculus mus.
-    Donec vitae tincidunt nisl.
-  </p>
-  <p class="font-light text-xl lg:text-3xl text-center">
+<OfferingsLayout title="U18 Tournament">
+  <div
+    class="w-full aspect-video lg:aspect-73/30 overflow-hidden border-8 border-flick-dark"
+  >
+    <img
+      src={MainImage.src}
+      alt="Workshop"
+      class="relative bottom-14 sm:bottom-25 lg:bottom-75 w-full object-cover aspect-4/3"
+    />
+  </div>
+  <p class="font-light text-xl lg:text-3xl">
     Integer tincidunt, ipsum at commodo tempus, enim orci consequat dolor, non
     sodales velit erat tristique lacus. Integer fermentum convallis orci ac
     faucibus. Integer sodales at erat ut vestibulum. Suspendisse ultrices sapien
@@ -27,18 +28,18 @@ import Button from "../../ui/inputs/Button.astro";
     target="_blank"
     class="m-auto"
   >
-    <Button size="lg" class="m-auto">Register Now</Button>
+    <Button class="mb-2" size="lg">Register now</Button>
   </a>
   <InfoHighlightLayout title="Next Tournament" size="md">
     <div class="flex flex-row gap-1 items-end">
-      <h5 class="font-bold text-2xl">14 June 2026</h5>
-      <p>9:30am - 5pm</p>
+      <h5 class="font-bold text-2xl">21 June 2026</h5>
+      <p>9:30am - 1:30pm</p>
     </div>
     <p>48 players</p>
     <p>Group stage, then main & consolation draw</p>
     <p>
       <span class="font-semibold">Fee:</span>
-      £12 (Members) / £25 (Non-Members)
+      £8 (Members) / £16 (Non-Members)
     </p>
     <p>
       <span class="font-semibold">Prizes:</span>

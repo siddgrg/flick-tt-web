@@ -1,9 +1,47 @@
 ---
 import PageHeader from "../../components/header/PageHeader.astro";
+import GroupSessions from "../../components/kids/GroupSessions.astro";
+import OneToOnes from "../../components/kids/OneToOnes.astro";
+import SchoolSessions from "../../components/kids/SchoolSessions.astro";
+import U18Tournament from "../../components/kids/U18Tournament.astro";
+import PageTabs from "../../components/tabs/PageTabs";
 import PageLayout from "../../layouts/PageLayout.astro";
+
+const tabConfig = [
+  {
+    label: "Group sessions",
+    contentId: "group-sessions",
+    Content: GroupSessions,
+  },
+  {
+    label: "Private Coaching",
+    contentId: "private-coaching",
+    Content: OneToOnes,
+  },
+  {
+    label: "U18 Tournament",
+    contentId: "u18-tournament",
+    Content: U18Tournament,
+  },
+  {
+    label: "School Sessions",
+    contentId: "school-sessions",
+    Content: SchoolSessions,
+  },
+];
 ---
 
 <PageLayout title="Kids">
   <PageHeader page="kids" />
-  <p>hello</p>
+  <PageTabs client:load tabConfig={tabConfig} />
+  {
+    tabConfig.map(({ contentId, Content }, i) => (
+      <div
+        class:list={["tab-content", { hidden: i !== 0 }]}
+        data-tab-content={contentId}
+      >
+        <Content />
+      </div>
+    ))
+  }
 </PageLayout>

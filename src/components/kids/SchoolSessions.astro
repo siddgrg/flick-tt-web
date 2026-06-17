@@ -1,0 +1,27 @@
+---
+import OfferingsLayout from "../../layouts/OfferingsLayout.astro";
+import Button from "../ui/inputs/Button.astro";
+import MainImage from "../../assets/offerings-corporate-main.jpg";
+---
+
+<OfferingsLayout title="School Sessions">
+  <div
+    class="w-full aspect-video lg:aspect-73/30 overflow-hidden border-8 border-flick-dark"
+  >
+    <img
+      src={MainImage.src}
+      alt="Corporate"
+      class="relative bottom-14 sm:bottom-25 lg:bottom-75 w-full object-cover aspect-4/3"
+    />
+  </div>
+  <p class="font-light text-xl lg:text-3xl">
+    Looking to host a unique corporate event in London? From team-building and
+    client entertainment to wellbeing days and family-friendly sessions, we
+    design table tennis experiences to fit your goals, your people, and your
+    schedule. Join us at our premium venue next to Canada Water station on the
+    Jubilee Line, or let us bring the event directly to your workplace.
+  </p>
+  <a href="https://bookwhen.com/flicktt" target="_blank" class="m-auto">
+    <Button class="mb-2" size="lg">Contact Us</Button>
+  </a>
+</OfferingsLayout>
