@@ -1,4 +1,6 @@
 ---
+import { hasPaddingClass } from "../utils";
+
 interface Props {
   title?: string;
   size?: "md" | "full";
@@ -9,7 +11,7 @@ const { title, size = "full", containerProps } = Astro.props;
 const _containerProps = { ...containerProps };
 if (_containerProps) delete _containerProps.class;
 
-console.log(containerProps?.class, !containerProps?.class?.includes("p-"));
+const classString = containerProps?.class ?? "";
 ---
 
 <div
@@ -18,9 +20,9 @@ console.log(containerProps?.class, !containerProps?.class?.includes("p-"));
     "flex flex-col bg-white/5 gap-2 rounded-xl text-xl",
     {
       "m-auto w-full max-w-4xl": size === "md",
-      "p-10": !containerProps?.class?.includes("p-"),
+      "p-8": !hasPaddingClass(classString),
     },
-    containerProps?.class,
+    classString,
   ]}
 >
   {title && <h4 class="text-flick-yellow font-bold text-4xl">{title}</h4>}
