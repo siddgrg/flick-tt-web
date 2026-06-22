@@ -28,3 +28,10 @@ export type PointsRowConfig = {
   Icon: SvgComponent;
   text: string;
 }[];
+
+export type CoachProfileConfig = {
+  img: string;
+  name: string;
+  title: "head" | "coach";
+  description: string[];
+};

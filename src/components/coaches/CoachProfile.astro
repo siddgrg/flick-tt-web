@@ -1,0 +1,28 @@
+---
+import Drawer from "../ui/drawer/Drawer.astro";
+import type { CoachProfileConfig } from "../../types";
+
+interface Props {
+  id: string;
+  profile: CoachProfileConfig;
+}
+
+const { id, profile } = Astro.props;
+
+const titleLabel = profile.title === "head" ? "Head Coach" : "Coach";
+---
+
+<Drawer id={id}>
+  <div class="flex flex-col gap-2 justify-end p-6 text-left">
+    <img src={profile.img} width="340" alt={profile.name} />
+    <div>
+      <p class="text-3xl font-semibold">{profile.name}</p>
+      <p class="text-2xl font-light text-flick-yellow">{titleLabel}</p>
+    </div>
+    {
+      profile.description.map((desc, i) => (
+        <p class={i === 0 ? "text-lg font-semibold" : ""}>{desc}</p>
+      ))
+    }
+  </div>
+</Drawer>
