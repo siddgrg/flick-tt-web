@@ -4,6 +4,10 @@ import SplitLayoutContainer from "../../layouts/splitLayout/SplitLayoutContainer
 import SplitLayoutLeft from "../../layouts/splitLayout/SplitLayoutLeft.astro";
 import SplitLayoutRight from "../../layouts/splitLayout/SplitLayoutRight.astro";
 import AboutLisAlberto from "../../assets/about-lis-alberto.png";
+import VenueMain from "../../assets/about-venue-main.png";
+import VenueOutside from "../../assets/about-venue-outside.png";
+import VenueMap from "../../assets/about-venue-map.png";
+import InfoHighlightLayout from "../../layouts/InfoHighlightLayout.astro";
 
 const aboutPoints = [
   {
@@ -92,6 +96,55 @@ const contacts = [
             </p>
           ))
         }
+      </div>
+    </SplitLayoutRight>
+  </SplitLayoutContainer>
+  <SplitLayoutContainer section>
+    <SplitLayoutLeft title="Our Venue" />
+    <SplitLayoutRight>
+      <div class="flex flex-col gap-6">
+        <img
+          src={VenueMain.src}
+          alt="Venue"
+          class="border-8 border-flick-dark"
+        />
+        <p class="text-2xl">
+          Integer ultricies, tellus eget elementum lobortis, sapien urna
+          consectetur nulla, eu venenatis neque diam eu enim. Proin porttitor
+          semper leo, vitae consequat lectus gravida id. Ut vitae neque et justo
+          fringilla feugiat sed non tellus.
+        </p>
+        <InfoHighlightLayout
+          containerProps={{ class: "p-4 gap-4 text-center" }}
+        >
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <img src={VenueOutside.src} alt="Venue outside" />
+            <img src={VenueMap.src} alt="Venue map" />
+          </div>
+          <p class="text-3xl">
+            Our current location is at
+            <br />
+            <span class="font-bold">Decathlon Surrey Quays</span>
+          </p>
+          <address>
+            <p class="font-bold">Address</p>
+            <p>
+              Decathlon Surrey Quays
+              <br />
+              9 Maritime Street
+              <br />
+              London<br />
+              SE16 7FU
+            </p>
+          </address>
+          <a
+            href="https://maps.app.goo.gl/pxRgqkdwtRLoAZk79"
+            target="_blank"
+            class="text-flick-yellow font-semibold hover:underline w-fit m-auto"
+          >
+            Find in Google Maps →
+          </a>
+        </InfoHighlightLayout>
       </div>
     </SplitLayoutRight>
   </SplitLayoutContainer>

@@ -92,12 +92,7 @@ const PageTabs = ({ tabConfig }: PageTabsProps) => {
             isActive={contentId === active}
             buttonProps={{
               onClick: () => handleTabClick(contentId),
-              className:
-                numOfTabs === 3
-                  ? "lg:w-90"
-                  : numOfTabs === 4
-                    ? "lg:w-60"
-                    : "lg:w-50",
+              className: numOfTabs < 4 ? "lg:w-90" : "lg:w-60",
             }}
           >
             {label}

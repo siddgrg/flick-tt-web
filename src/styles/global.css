@@ -28,6 +28,10 @@
       font-size: 70px;
     }
   }
+
+  address {
+    font-style: normal;
+  }
 }
 
 @layer components {

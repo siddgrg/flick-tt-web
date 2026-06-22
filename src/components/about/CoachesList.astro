@@ -1,0 +1,54 @@
+---
+import AlbertoImage from "../../assets/profile-alberto.png";
+import LisImage from "../../assets/profile-lis.png";
+import MartinImage from "../../assets/profile-martin.png";
+import Button from "../ui/inputs/Button.astro";
+
+const coachConfig = [
+  {
+    name: "Alberto Garrido",
+    img: {
+      src: AlbertoImage.src,
+    },
+    bookingUrl: "https://bookwhen.com/flicktt-alberto",
+  },
+  {
+    name: "Lis Pardo",
+    img: {
+      src: LisImage.src,
+    },
+    bookingUrl: "https://bookwhen.com/flicktt-lis",
+  },
+  {
+    name: "Martin Matuzevicius",
+    img: {
+      src: MartinImage.src,
+    },
+    bookingUrl: "https://bookwhen.com/flicktt-martin",
+  },
+];
+---
+
+{
+  coachConfig.map(({ name, img, bookingUrl }, i) => (
+    <div
+      class:list={[
+        "flex flex-col md:flex-row py-6 gap-5 md:gap-8",
+        { "border-b border-flick-dark": i !== coachConfig.length - 1 },
+      ]}
+    >
+      <div class="md:max-h-90 md:max-w-85 h-full w-full overflow-hidden">
+        {<img src={img.src} alt={name} class="relative object-cover" />}
+      </div>
+      <div class="flex flex-col justify-between gap-5 md:gap-0 w-full">
+        <h5 class="font-bold text-5xl">{name}</h5>
+        <div class="flex flex-col sm:flex-row w-full sm:w-fit self-start gap-5 md:self-end">
+          <Button class="w-full sm:w-fit">Find out more</Button>
+          <a href={bookingUrl} target="_blank">
+            <Button class="w-full sm:w-fit">Book a Session</Button>
+          </a>
+        </div>
+      </div>
+    </div>
+  ))
+}
