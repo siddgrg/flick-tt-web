@@ -107,7 +107,14 @@ const faqConfig: FaqConfig[] = [
           >League Calendar</Button
         >
       </WithSmoothScrollTo>
-      <Button size="lg" class="w-full md:w-fit">League Rules</Button>
+      <WithSmoothScrollTo
+        originId="league-rules-btn"
+        toId="league-rules-container"
+      >
+        <Button size="lg" class="w-full md:w-fit" id="league-rules-btn"
+          >League Rules</Button
+        >
+      </WithSmoothScrollTo>
     </div>
   </div>
   <PointsRow pointConfig={pointConfig} />
@@ -157,3 +164,13 @@ const faqConfig: FaqConfig[] = [
     </div>
   </Container>
 </OfferingsLayout>
+<Container class="flex flex-col gap-4 pt-6 pb-14" id="league-rules-container">
+  <h3>League Rules</h3>
+  <iframe
+    title="Flick TT League calendar"
+    src="https://flicktt-my.sharepoint.com/personal/admin_flicktt_club/_layouts/15/Doc.aspx?sourcedoc={e5b95760-2cab-447b-bb5b-1e3b5f029838}&action=embedview&wdStartOn=1"
+    loading="lazy"
+    class="w-full h-175 rounded-xl"
+  >
+  </iframe>
+</Container>
