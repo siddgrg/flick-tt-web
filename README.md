@@ -43,12 +43,12 @@ The same source deploys two ways:
 - **Static image for the NAS** — `STATIC_BUILD=true` drops the adapter and emits a pure static `dist/`
   served by nginx. This is what runs on the Synology NAS.
 
-CI (`.github/workflows/build-and-push.yml`) builds and pushes the image to GHCR on every push to `master`:
+CI (`.github/workflows/build-and-push.yml`) builds and pushes the image to GHCR on every push to `master`,
+tagged by commit id (no semver):
 
-- `ghcr.io/flicktt/public-web:latest`, `:<version>`, `:<major.minor>`, `:sha-<short>` on `master`
-- the SemVer release tags on a `v*` git tag
+- `ghcr.io/flicktt/public-web:latest` and `:<commit-id>` (short SHA)
 
-The NAS (Dockhand) auto-pulls the new `:latest`. Build it locally with:
+The NAS (Dockhand) auto-pulls the new `:latest`; the `:<commit-id>` tag pins an exact build. Build it locally with:
 
 ```sh
 docker build -t public-web .
