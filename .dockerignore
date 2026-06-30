@@ -1,0 +1,9 @@
+# Keep the build context small — these are regenerated inside the image or are local noise.
+node_modules
+dist
+.astro
+.wrangler
+*.log
+.env
+.env.*
+.DS_Store

@@ -1,0 +1,43 @@
+name: Build & Push
+
+# Publishes the public-web image (the static Astro site on nginx) the NAS pulls from GHCR. Dockhand on the
+# NAS auto-pulls the new :latest. Cloudflare Workers deploys remain a separate path (the default build).
+#   - push to master → latest + <commit-id>
+# Images are tagged by commit id (no semver). Docs-only pushes are skipped (no markdown ends up in the image).
+on:
+  push:
+    branches: [ master ]
+    paths-ignore:
+      - '**.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: docker/metadata-action@v5
+        id: meta
+        with:
+          images: ghcr.io/flicktt/public-web
+          tags: |
+            type=raw,value=latest,enable={{is_default_branch}}
+            type=sha,format=short,prefix=
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          platforms: linux/amd64
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
