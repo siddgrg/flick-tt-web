@@ -35,9 +35,37 @@ pnpm build
 pnpm preview
 ```
 
+## Docker / NAS deployment
+
+The same source deploys two ways:
+
+- **Cloudflare Workers** — the default `pnpm build` (uses the `@astrojs/cloudflare` adapter), unchanged.
+- **Static image for the NAS** — `STATIC_BUILD=true` drops the adapter and emits a pure static `dist/`
+  served by nginx. This is what runs on the Synology NAS.
+
+CI (`.github/workflows/build-and-push.yml`) builds and pushes the image to GHCR on every push to `master`:
+
+- `ghcr.io/flicktt/public-web:latest`, `:<version>`, `:<major.minor>`, `:sha-<short>` on `master`
+- the SemVer release tags on a `v*` git tag
+
+The NAS (Dockhand) auto-pulls the new `:latest`. Build it locally with:
+
+```sh
+docker build -t public-web .
+docker run --rm -p 8080:80 public-web   # http://localhost:8080
+```
+
+Example NAS compose service (Cloudflare Tunnel → this container; no published ports needed):
+
+```yaml
+  public-web:
+    image: ghcr.io/flicktt/public-web:latest
+    restart: unless-stopped
+```
+
 ## Notes
 
-- Uses Astro with Cloudflare adapter and Tailwind CSS
+- Uses Astro with Cloudflare adapter (default) + a static/nginx build for Docker, and Tailwind CSS
 - Pages live under `src/pages`
 - Components live under `src/components`
 - Static assets live in `public`
